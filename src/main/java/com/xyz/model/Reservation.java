@@ -13,8 +13,10 @@ import java.util.Date;
 @Getter
 @Setter
 @JsonAutoDetect(getterVisibility= JsonAutoDetect.Visibility.NONE)
+@EqualsAndHashCode
 public class Reservation {
     @JsonProperty
+    @EqualsAndHashCode.Exclude
     public Long id;
     @JsonProperty
     public String name;

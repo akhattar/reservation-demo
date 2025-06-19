@@ -18,6 +18,11 @@ public class ReservationManager {
 
     public boolean createReservation(Reservation reservation){
         log.debug("Create reservation;{}", reservation);
+
+        if (!reservationRepo.isEmpty() && reservationRepo.stream().anyMatch(r -> r.equals(reservation))) {
+            return false;
+        }
+
         reservation.setId(idCount++);
        return reservationRepo.add(reservation);
     }
